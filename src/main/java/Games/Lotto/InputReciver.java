@@ -1,4 +1,4 @@
-package Games;
+package Games.Lotto;
 
 import lombok.Data;
 
@@ -6,23 +6,25 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static Games.Lotto.LottoConfiguration.NUMBERS_TO_DRAW;
+import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
+import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
+
 @Data
-public class LottoGameInputReciver {
+class InputReciver {
 
     private TreeSet<Integer> inputNumbers = new TreeSet<>();
-    private  Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public TreeSet<Integer> userInput(Scanner sc) {
-        this.scanner = sc;
-
-        int i = 1;
-        System.out.println("Podaj 6 liczb z zakresu 1-99:");
+        int numberCounter = 1;
+        System.out.println("Podaj " + NUMBERS_TO_DRAW + " liczb z zakresu 1-99:");
 
 
         do {
             try {
-                System.out.println("Liczba numer: " + i);
-                String inputLine = scanner.nextLine();
+                System.out.println("Liczba numer: " + numberCounter);
+                String inputLine = sc.nextLine();
                 int parsedLine = Integer.parseInt(inputLine);
 
                 Pattern pattern = Pattern.compile("^[1-9][0-9]*$");
@@ -30,23 +32,22 @@ public class LottoGameInputReciver {
 
                 if (inputNumbers.contains(parsedLine)) {
                     System.out.println("Tą liczbę już podałeś - podaj inną liczbę !!");
-                } else if (matcher.find() && parsedLine > 0 && parsedLine < 100) {
+                } else if (matcher.find() && parsedLine >= RANGE_OF_DRAWN_MIN && parsedLine < RANGE_OF_DRAWN_MAX) {
                     inputNumbers.add(parsedLine);
-                    i++;
+                    numberCounter++;
                 } else {
                     System.out.println("Wprowadzono błędną wartość - podaj prawidłową liczbę !!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Wprowadzono błędny znak");
             }
-        } while (i < 7);
+        } while (numberCounter <= NUMBERS_TO_DRAW);
         return inputNumbers;
 
     }
 
 
     public void printInput(TreeSet<Integer> treeSet) {
-        this.inputNumbers = treeSet;
         System.out.println("Oto Twoje liczby: " + treeSet);
     }
 }

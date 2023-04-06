@@ -1,5 +1,6 @@
-package Games;
+package Games.Lotto;
 
+import Games.Lotto.LottoGameInputReciver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class LottoGameInputReciverTest {
-    private LottoGameInputReciver lottoGameInputReciver;
+    private InputReciver lottoGameInputReciver;
 
     @BeforeEach
     void init() {
-        lottoGameInputReciver = new LottoGameInputReciver();
+        InputReciver = new InputReciver();
     }
 
     @Test
@@ -27,7 +28,7 @@ class LottoGameInputReciverTest {
         Scanner scanner = Mockito.mock(Scanner.class);
         doReturn("1", "2", "3", "4", "5", "6").when(scanner).nextLine();
         //when
-        TreeSet<Integer> result = lottoGameInputReciver.userInput(scanner);
+        TreeSet<Integer> result = InputReciver.userInput(scanner);
         //then
         assertEquals(arrayList, result);
     }
@@ -39,17 +40,10 @@ class LottoGameInputReciverTest {
         Scanner scanner = Mockito.mock(Scanner.class);
         doReturn("1", "1d", "-90", "100", "2", "3", "a", "4", "4", "5", "6").when(scanner).nextLine();
         //when
-        TreeSet<Integer> result = lottoGameInputReciver.userInput(scanner);
+        TreeSet<Integer> result = InputReciver.userInput(scanner);
         //then
         assertEquals(arrayList, result);
     }
-
-    @Test
-    void should_throw_NumberFormatException_when_not_a_number_is_given() {
-        //then
-        assertThrows(NumberFormatException.class, () -> Integer.parseInt("a"));
-    }
-
     @Test
     void verify_calling_printInput_method() {
         //given

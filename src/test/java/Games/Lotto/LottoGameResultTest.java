@@ -1,4 +1,4 @@
-package Games;
+package Games.Lotto;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

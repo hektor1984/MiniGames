@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menu {
+class Menu {
     public Menu() {
         System.out.println("WELCOME IN MINIGAMES\n");
         System.out.println("CHOOSE YOUR GAME:\n");

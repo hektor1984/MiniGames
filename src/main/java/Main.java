@@ -1,14 +1,13 @@
-import Games.LottoGameResult;
 import Games.LottoGameInputReciver;
 
 import java.util.Scanner;
 
-class Main {
+public class Main {
     public static void main(String[] Args) {
 
         Menu menu = new Menu();
         LottoGameInputReciver lottoGameInputReciver = new LottoGameInputReciver();
-        LottoGameResult lottoGameResult = new LottoGameResult();
+
         Scanner scanner = new Scanner(System.in);
 
         menu.chosenGame();
