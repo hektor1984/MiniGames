@@ -11,25 +11,23 @@ import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
 import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
 
 @Data
-class InputReciver {
+public
+class InputReciver implements InputModel{
+
+    private final Scanner sc;
 
     private TreeSet<Integer> inputNumbers = new TreeSet<>();
-    private Scanner scanner = new Scanner(System.in);
-
-    public TreeSet<Integer> userInput(Scanner sc) {
+    @Override
+    public TreeSet<Integer> reciveInput() {
         int numberCounter = 1;
         System.out.println("Podaj " + NUMBERS_TO_DRAW + " liczb z zakresu 1-99:");
-
-
         do {
             try {
                 System.out.println("Liczba numer: " + numberCounter);
                 String inputLine = sc.nextLine();
                 int parsedLine = Integer.parseInt(inputLine);
-
                 Pattern pattern = Pattern.compile("^[1-9][0-9]*$");
                 Matcher matcher = pattern.matcher(inputLine);
-
                 if (inputNumbers.contains(parsedLine)) {
                     System.out.println("Tą liczbę już podałeś - podaj inną liczbę !!");
                 } else if (matcher.find() && parsedLine >= RANGE_OF_DRAWN_MIN && parsedLine < RANGE_OF_DRAWN_MAX) {
@@ -43,11 +41,5 @@ class InputReciver {
             }
         } while (numberCounter <= NUMBERS_TO_DRAW);
         return inputNumbers;
-
-    }
-
-
-    public void printInput(TreeSet<Integer> treeSet) {
-        System.out.println("Oto Twoje liczby: " + treeSet);
     }
 }

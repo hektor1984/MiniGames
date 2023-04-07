@@ -1,23 +1,19 @@
-import Games.LottoGameInputReciver;
+import Games.Lotto.InputPrinter;
+import Games.Lotto.InputReciver;
+import Games.Lotto.LottoGameStarter;
+import Games.Lotto.NumberDrawer;
+import Games.Lotto.NumberPrinter;
+import Games.Lotto.ResultAnnouncer;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] Args) {
-
-        Menu menu = new Menu();
-        LottoGameInputReciver lottoGameInputReciver = new LottoGameInputReciver();
-
-        Scanner scanner = new Scanner(System.in);
-
+        Menu menu = new Menu(new Scanner(System.in));
         menu.chosenGame();
-
-        lottoGameInputReciver.userInput(scanner);
-        lottoGameInputReciver.printInput(lottoGameInputReciver.getInputNumbers());
-
-        lottoGameResult.drawingNumbers(lottoGameResult.getDrawnNumbers());
-        lottoGameResult.printDrawnNumbers(lottoGameResult.getDrawnNumbers());
-        lottoGameResult.checkGameScore(lottoGameInputReciver.getInputNumbers());
-        lottoGameResult.finalResult(lottoGameResult.getScore());
+        LottoGameStarter lottoGameStarter = new LottoGameStarter(
+                new InputReciver(new Scanner(System.in)), new InputPrinter(),
+                new NumberDrawer(), new NumberPrinter(), new ResultAnnouncer());
+        lottoGameStarter.start();
     }
 }

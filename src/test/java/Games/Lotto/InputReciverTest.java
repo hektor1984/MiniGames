@@ -1,6 +1,5 @@
 package Games.Lotto;
 
-import Games.Lotto.LottoGameInputReciver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -10,25 +9,19 @@ import java.io.PrintStream;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-class LottoGameInputReciverTest {
-    private InputReciver lottoGameInputReciver;
-
-    @BeforeEach
-    void init() {
-        InputReciver = new InputReciver();
-    }
+class InputReciverTest {
 
     @Test
     void should_return_given_treeSet() {
         //given
+        InputReciver inputReciver = new InputReciver();
         TreeSet<Integer> arrayList = new TreeSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
         Scanner scanner = Mockito.mock(Scanner.class);
         doReturn("1", "2", "3", "4", "5", "6").when(scanner).nextLine();
         //when
-        TreeSet<Integer> result = InputReciver.userInput(scanner);
+        TreeSet<Integer> result = inputReciver.userInput(scanner);
         //then
         assertEquals(arrayList, result);
     }
@@ -36,23 +29,24 @@ class LottoGameInputReciverTest {
     @Test
     void should_return_correct_given_arrayList_even_when_incorrect_input_is_entered() {
         //given
+        InputReciver inputReciver = new InputReciver();
         TreeSet<Integer> arrayList = new TreeSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
         Scanner scanner = Mockito.mock(Scanner.class);
         doReturn("1", "1d", "-90", "100", "2", "3", "a", "4", "4", "5", "6").when(scanner).nextLine();
         //when
-        TreeSet<Integer> result = InputReciver.userInput(scanner);
+        TreeSet<Integer> result = inputReciver.userInput(scanner);
         //then
         assertEquals(arrayList, result);
     }
     @Test
     void verify_calling_printInput_method() {
         //given
-        LottoGameInputReciver lottoGameInputReciver = mock(LottoGameInputReciver.class);
+        InputReciver inputReciver = mock(InputReciver.class);
         TreeSet<Integer> treeSet = new TreeSet<>();
         //when
-        lottoGameInputReciver.printInput(treeSet);
+        inputReciver.printInput(treeSet);
         //then
-        verify(lottoGameInputReciver, times(1)).printInput(treeSet);
+        verify(inputReciver, times(1)).printInput(treeSet);
     }
 
     @Test
@@ -63,7 +57,7 @@ class LottoGameInputReciverTest {
         System.setOut(new PrintStream(outputStreamCaptor));
         String outputString = "Oto Twoje liczby: " + treeSet;
         //when
-        lottoGameInputReciver.printInput(treeSet);
+        inputReciver.printInput(treeSet);
         //then
         assertEquals(outputString, outputStreamCaptor.toString().trim());
     }
