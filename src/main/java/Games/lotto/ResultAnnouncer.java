@@ -1,12 +1,12 @@
-package Games.Lotto;
+package Games.lotto;
 
 import java.util.TreeSet;
 
-import static Games.Lotto.LottoConfiguration.LOSE_MESSAGE;
-import static Games.Lotto.LottoConfiguration.WIN_MESSAGE;
+import static Games.lotto.LottoConfiguration.LOSE_MESSAGE;
+import static Games.lotto.LottoConfiguration.WIN_MESSAGE;
 
-public class ResultAnnouncer {
-    public void finalResult(TreeSet <Integer> resultTreeset) {
+class ResultAnnouncer {
+    void finalResult(TreeSet <Integer> resultTreeset) {
         if (resultTreeset.size() > 2) {
             System.out.println(WIN_MESSAGE + resultTreeset.size());
         } else {

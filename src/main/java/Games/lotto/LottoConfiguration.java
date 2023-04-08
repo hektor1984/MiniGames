@@ -1,4 +1,4 @@
-package Games.Lotto;
+package Games.lotto;
 
 class LottoConfiguration {
    static final int NUMBERS_TO_DRAW  = 6;

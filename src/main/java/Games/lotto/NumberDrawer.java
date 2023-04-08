@@ -1,13 +1,13 @@
-package Games.Lotto;
+package Games.lotto;
 import java.util.Random;
 import java.util.TreeSet;
-import static Games.Lotto.LottoConfiguration.NUMBERS_TO_DRAW;
-import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
-import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
+import static Games.lotto.LottoConfiguration.NUMBERS_TO_DRAW;
+import static Games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
+import static Games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
 
- public class NumberDrawer {
+ class NumberDrawer {
 
-    public TreeSet<Integer> drawingNumbers() {
+    TreeSet<Integer> drawingNumbers() {
         TreeSet<Integer> drawnTreeSet = new TreeSet<>();
         Random rand = new Random();
         while (drawnTreeSet.size() < NUMBERS_TO_DRAW) {

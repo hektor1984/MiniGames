@@ -1,4 +1,4 @@
-package Games.Lotto;
+package Games.lotto;
 
 import lombok.Data;
 
@@ -6,12 +6,11 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Games.Lotto.LottoConfiguration.NUMBERS_TO_DRAW;
-import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
-import static Games.Lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
+import static Games.lotto.LottoConfiguration.NUMBERS_TO_DRAW;
+import static Games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
+import static Games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
 
 @Data
-public
 class InputReciver implements InputModel{
 
     private final Scanner sc;
