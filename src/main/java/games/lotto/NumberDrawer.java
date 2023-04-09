@@ -1,9 +1,9 @@
-package Games.lotto;
+package games.lotto;
 import java.util.Random;
 import java.util.TreeSet;
-import static Games.lotto.LottoConfiguration.NUMBERS_TO_DRAW;
-import static Games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
-import static Games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
+import static games.lotto.LottoConfiguration.NUMBERS_TO_DRAW;
+import static games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MAX;
+import static games.lotto.LottoConfiguration.RANGE_OF_DRAWN_MIN;
 
  class NumberDrawer {
 

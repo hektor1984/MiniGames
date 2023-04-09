@@ -1,7 +1,6 @@
-package Games.lotto;
+package games.lotto;
 
 import java.util.Arrays;
-import java.util.Set;
 import java.util.TreeSet;
 
  class InputModelForTest implements InputModel {

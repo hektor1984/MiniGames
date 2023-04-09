@@ -1,9 +1,9 @@
-package Games.lotto;
+package games.lotto;
 
 import java.util.TreeSet;
 
-import static Games.lotto.LottoConfiguration.LOSE_MESSAGE;
-import static Games.lotto.LottoConfiguration.WIN_MESSAGE;
+import static games.lotto.LottoMessageProvider.LOSE_MESSAGE;
+import static games.lotto.LottoMessageProvider.WIN_MESSAGE;
 
 class ResultAnnouncer {
     void finalResult(TreeSet <Integer> resultTreeset) {
