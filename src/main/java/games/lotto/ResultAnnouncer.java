@@ -6,11 +6,13 @@ import static games.lotto.LottoMessageProvider.LOSE_MESSAGE;
 import static games.lotto.LottoMessageProvider.WIN_MESSAGE;
 
 class ResultAnnouncer {
-    void finalResult(TreeSet <Integer> resultTreeset) {
+    String finalResult(TreeSet<Integer> resultTreeset) {
+        String resultMessage;
         if (resultTreeset.size() > 2) {
-            System.out.println(WIN_MESSAGE + resultTreeset.size());
+            resultMessage = WIN_MESSAGE + resultTreeset.size();
         } else {
-            System.out.println(LOSE_MESSAGE + resultTreeset.size());
+            resultMessage = LOSE_MESSAGE + resultTreeset.size();
         }
+        return resultMessage;
     }
 }
