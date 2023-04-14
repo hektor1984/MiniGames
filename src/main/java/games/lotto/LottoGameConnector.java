@@ -17,14 +17,17 @@ class LottoGameConnector {
         this.numberPrinter = numberPrinter;
         this.resultAnnouncer = resultAnnouncer;
     }
+
     void startConnector() {
-        TreeSet<Integer> lottoRandomNumbers = numberDrawer.drawingNumbers();
-        TreeSet<Integer> userNumbers = inputModelFromUser.getInputNumbers();
+        TreeSet<Integer> lottoRandomNumbers;
+        TreeSet<Integer> userNumbers;
 
         inputModelFromUser.reciveInput();
+        userNumbers = inputModelFromUser.getInputNumbers();
         inputPrinter.printInput(userNumbers);
+        lottoRandomNumbers = numberDrawer.drawingNumbers();
         numberPrinter.printDrawnNumbers(lottoRandomNumbers);
         lottoRandomNumbers.retainAll(userNumbers);
-        resultAnnouncer.finalResult(lottoRandomNumbers);
+        System.out.println(resultAnnouncer.finalResult(lottoRandomNumbers));
     }
 }

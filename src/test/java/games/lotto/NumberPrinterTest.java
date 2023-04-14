@@ -24,5 +24,4 @@ class NumberPrinterTest {
         //then
         assertEquals(winningString, outputStreamCaptor.toString().trim());
     }
-
 }
